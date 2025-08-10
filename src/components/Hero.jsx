@@ -17,7 +17,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="https://wa.me/+1234567890"
+                href="https://wa.me/+2349050065306"
                 className="bg-primary hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Join the Sprint 🚀
