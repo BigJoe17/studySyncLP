@@ -8,9 +8,27 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Production security headers
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    next();
+  });
+}
+
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? [process.env.FRONTEND_URL, 'https://study-sync-lp.vercel.app']
+    : true,
+  credentials: true
+}));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Initialize PostgreSQL connection pool
 const pool = new Pool({
@@ -321,8 +339,33 @@ app.post('/api/waitlist/test-confirm', async (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`StudySync Waitlist API running on port ${PORT}`);
+const server = app.listen(PORT, () => {
+  console.log(`🚀 StudySync Waitlist API running on port ${PORT}`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`📧 Email mode: ${isTestMode ? 'TEST (logging only)' : 'PRODUCTION (sending emails)'}`);
+});
+
+// Graceful shutdown handling
+process.on('SIGTERM', () => {
+  console.log('🛑 SIGTERM received, shutting down gracefully...');
+  server.close(() => {
+    console.log('✅ Server closed');
+    pool.end(() => {
+      console.log('✅ Database connections closed');
+      process.exit(0);
+    });
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('🛑 SIGINT received, shutting down gracefully...');
+  server.close(() => {
+    console.log('✅ Server closed');
+    pool.end(() => {
+      console.log('✅ Database connections closed');
+      process.exit(0);
+    });
+  });
 });
 
 module.exports = app;

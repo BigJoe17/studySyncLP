@@ -25,6 +25,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Why Join', href: '#why-join' },
+    { name: 'Waitlist', href: '#waitlist' },
     { name: 'Sprint', href: '#sprint' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -61,10 +62,10 @@ const Navigation = () => {
               </a>
             ))}
             <a
-              href="https://wa.me/+1234567890"
+              href="#waitlist"
               className="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
-              Join Now
+              Join Waitlist
             </a>
           </div>
 
@@ -101,11 +102,11 @@ const Navigation = () => {
                 </a>
               ))}
               <a
-                href="https://wa.me/+1234567890"
+                href="#waitlist"
                 className="block w-full text-center bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                Join Now
+                Join Waitlist
               </a>
             </div>
           </div>

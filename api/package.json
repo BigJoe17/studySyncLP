@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "echo 'API build complete - ready for deployment'",
+    "prod": "NODE_ENV=production node server.js",
+    "test": "echo 'No tests specified yet'",
+    "lint": "echo 'No linting configured yet'"
   },
   "dependencies": {
     "cors": "^2.8.5",
