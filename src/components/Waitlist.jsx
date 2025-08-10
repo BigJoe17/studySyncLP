@@ -37,7 +37,7 @@ const Waitlist = () => {
     setError('');
     
     try {
-      const response = await fetch('http://localhost:3001/api/waitlist/join', {
+      const response = await fetch('https://studysynclp-1.onrender.com/api/waitlist/join', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

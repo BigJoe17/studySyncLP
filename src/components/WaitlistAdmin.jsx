@@ -15,7 +15,7 @@ const WaitlistAdmin = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/waitlist/stats');
+      const response = await fetch('https://studysynclp-1.onrender.com/api/waitlist/stats');
       const data = await response.json();
       setStats(data);
     } catch (error) {
@@ -28,7 +28,7 @@ const WaitlistAdmin = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3001/api/waitlist/users');
+      const response = await fetch('https://studysynclp-1.onrender.com/api/waitlist/users');
       const data = await response.json();
       setUsers(data);
     } catch (error) {
