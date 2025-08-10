@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#2563EB"/>
+  
+  <!-- StudySync Logo - Two connected elements -->
+  <!-- Left student/book -->
+  <rect x="6" y="10" width="8" height="12" rx="2" fill="white"/>
+  <circle cx="10" cy="14" r="1" fill="#2563EB"/>
+  <rect x="8" y="17" width="4" height="1" rx="0.5" fill="#2563EB"/>
+  <rect x="8" y="19" width="3" height="1" rx="0.5" fill="#2563EB"/>
+  
+  <!-- Right student/book -->
+  <rect x="18" y="10" width="8" height="12" rx="2" fill="white"/>
+  <circle cx="22" cy="14" r="1" fill="#2563EB"/>
+  <rect x="20" y="17" width="4" height="1" rx="0.5" fill="#2563EB"/>
+  <rect x="21" y="19" width="3" height="1" rx="0.5" fill="#2563EB"/>
+  
+  <!-- Connection/Sync symbol -->
+  <path d="M14 15 L18 15" stroke="#FACC15" stroke-width="2" stroke-linecap="round"/>
+  <path d="M16 13 L18 15 L16 17" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Small "S" for StudySync -->
+  <text x="16" y="8" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="white">S</text>
+</svg>

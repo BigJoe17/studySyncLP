@@ -13,6 +13,15 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navItems = [
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Why Join', href: '#why-join' },
@@ -29,7 +38,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="bg-primary p-2 rounded-xl">
-              <span className="text-xl text-white">📚</span>
+              <span className="text-xl text-white">📖</span>
             </div>
             <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-white lg:text-gray-900'

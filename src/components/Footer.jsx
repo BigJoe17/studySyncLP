@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-primary p-2 rounded-xl">
-                <span className="text-2xl">📚</span>
+                <span className="text-2xl">📖</span>
               </div>
               <span className="text-2xl font-bold">StudySync</span>
             </div>
